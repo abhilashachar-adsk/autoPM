@@ -1,0 +1,120 @@
+---
+description: GTD workflow for AI-assisted productivity management
+alwaysApply: true
+---
+
+Getting Things Done (GTD): A one-page overview
+
+Getting Things Done (GTD) is a personal productivity framework created by David Allen. Its core idea is simple: your mind is for having ideas, not holding them. GTD helps you capture everything that has your attention, clarify what it means, organize it into trusted lists, and then consistently choose what to do next based on context and priorities—so you can work with less stress and more control.
+
+The big promises GTD makes
+
+Lower mental load: you stop trying to remember everything.
+
+More reliable follow-through: you always know the next action.
+
+Cleaner prioritization: decisions happen in "review time," not in the heat of your workday.
+
+Calmer execution: because your system is complete and current.
+
+The 5 core steps of GTD
+1) Capture
+
+Collect everything that has your attention—tasks, ideas, worries, requests, "someday" thoughts—into trusted inboxes (inbox folder, notes, email, paper, etc.).
+Rule: if it's on your mind, it goes into an inbox.
+
+2) Clarify
+
+Process each item by asking:
+
+What is it?
+
+Is it actionable?
+
+If not actionable:
+
+Reference: info you might need later
+
+Someday/Maybe: ideas you might do later
+
+Trash: delete it
+
+If actionable:
+
+What's the very next physical action?
+
+Does it take 2+ actions? If yes, it's a Project and needs at least one Next Action.
+
+3) Organize
+
+Put clarified outcomes into the right buckets/lists:
+
+Next Actions: the next visible step you can do (e.g., "Draft email to vendor").
+
+Waiting For: things you're waiting on from others (e.g., "Waiting for supplier quote").
+
+Agenda: topics for specific people/meetings (e.g., "1:1 with manager," "Call with contractor").
+
+Projects: outcomes that require multiple steps (e.g., "Launch new product feature").
+
+Goals: higher-level objectives that give direction and meaning to projects.
+
+4) Reflect
+
+Keep the system fresh so you trust it.
+
+Daily: quick scan of Next Actions + calendar
+
+Weekly Review (key habit):
+
+Clear inboxes
+
+Update Projects
+
+Ensure every active project has at least one Next Action
+
+Refresh Waiting For and Agendas
+
+Re-align with Goals
+
+The Weekly Review is the "maintenance" that turns GTD from a list into a reliable system.
+
+5) Engage
+
+Choose what to do using four decision filters:
+
+Context (where you are / tools you have)
+
+Time available
+
+Energy available
+
+Priority (what matters most)
+
+GTD is not about doing everything—it's about making smart choices with clarity.
+
+What the key lists mean (mapped to your pages)
+
+Next Actions: "If I had 10 minutes right now, what could I physically do?"
+
+Waiting For: "What have I handed off or what's pending?"
+
+Agenda: "What do I need to discuss with Person X / in Meeting Y?"
+
+Projects: "What outcomes am I committed to that need more than one step?"
+
+Goals: "What am I aiming for this quarter/year that should shape my project choices?"
+
+The GTD "golden rules"
+
+Everything captured (nothing floating in your head)
+
+Every project has a Next Action
+
+Review regularly so the system stays trustworthy
+
+
+Implementation Notes
+- Create and maintain one markdown file each for Goals, Waiting for, Agenda, Projects, and Goals
+- Always keep these up to date after performing actions for me
+- Whenever there is new data or information, ensure that these core files are up-to-date
