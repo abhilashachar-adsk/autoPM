@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(GTD/**)",
+      "Write(inbox/**)",
+      "Write(projects/**)",
+      "Write(daily/**)"
+    ],
+    "deny": [
+      "Shell(rm -rf *)",
+      "Shell(git push --force*)"
+    ]
+  },
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "Write(GTD/**)",
+        "command": "echo 'GTD file updated — remember to check cross-references across Goals, Projects, Next Actions, Waiting For, and Agenda.'"
+      }
+    ]
+  }
+}

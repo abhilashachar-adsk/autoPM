@@ -61,7 +61,7 @@ The optimization phase focuses on preserving asset value and continuously improv
 
 ## Key Principles
 
-1. **Continuous Cycle:** The three phases feed into each other — insights from Maintain & Optimize inform future Planning
+1. **Continuous Cycle:** The three phases feed into each other—insights from Maintain & Optimize inform future Planning
 2. **Leading vs. Lagging Indicators:** Focus on predictive metrics rather than historical ones
 3. **Proactive over Reactive:** Prevent problems rather than fix them
 4. **Data-Driven Decisions:** Use IoT, sensors, and analytics across all phases
@@ -76,3 +76,9 @@ This framework applies to:
 - Supply chain operations
 - Asset-intensive industries
 - Service operations with physical components
+
+---
+
+## Source
+
+![Operations Lifecycle Diagram](/Users/achara/.cursor/projects/Users-achara-Documents-Work-Projects-autoPM/assets/image-bf580c3e-4af4-43ef-abbd-8dd8266f9454.png)

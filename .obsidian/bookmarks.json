@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "path": "Home.md",
+      "title": "Home"
+    },
+    {
+      "type": "file",
+      "path": "GTD/goals.md",
+      "title": "Goals"
+    },
+    {
+      "type": "file",
+      "path": "GTD/Projects.md",
+      "title": "Projects"
+    },
+    {
+      "type": "file",
+      "path": "GTD/Next_Actions.md",
+      "title": "Next Actions"
+    },
+    {
+      "type": "file",
+      "path": "GTD/Waiting_For.md",
+      "title": "Waiting For"
+    },
+    {
+      "type": "file",
+      "path": "GTD/Agenda.md",
+      "title": "Agenda"
+    }
+  ]
+}

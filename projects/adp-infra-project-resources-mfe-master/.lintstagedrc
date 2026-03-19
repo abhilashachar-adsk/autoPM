@@ -1,0 +1,14 @@
+{
+    "{src,public}/**/*.{ts,tsx}": [
+        "tsc-files --pretty --noEmit src/types/index.d.ts src/types/cfp.d.ts src/custom.d.ts",
+        "eslint --fix",
+        "prettier --write",
+    ],
+    "{src,public}/**/*.{js,jsx}": [
+        "eslint --fix",
+        "prettier --write",
+    ],
+    "public/**/*.html": [
+        "prettier --write",
+    ],
+}

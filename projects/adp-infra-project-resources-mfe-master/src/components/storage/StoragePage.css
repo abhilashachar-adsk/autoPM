@@ -1,0 +1,263 @@
+.storage-page-header {
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.storage-page-header-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.storage-page-header-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+
+.storage-page-content {
+  background: #F5F5F5;
+}
+
+.storage-page-content-container {
+  padding: 24px 40px;
+}
+
+.storage-page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.storage-page-resources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.storage-resource-accordion {
+  background: #FFFFFF !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+  overflow: hidden !important;
+}
+
+.storage-resource-accordion::before {
+  display: none !important;
+}
+
+.storage-resource-accordion > .MuiPaper-root {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.storage-resource-accordion .MuiAccordionSummary-root {
+  min-height: 114px !important;
+  padding: 16px 24px !important;
+  background-color: #FFFFFF !important;
+  align-items: flex-start !important;
+  border-radius: 0 !important;
+}
+
+.storage-resource-accordion .MuiAccordionSummary-root:first-child {
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+}
+
+.storage-resource-accordion .MuiAccordionSummary-content {
+  margin: 0 !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+}
+
+.storage-resource-accordion .MuiAccordionSummary-expandIconWrapper {
+  margin-top: 0 !important;
+}
+
+.storage-resource-accordion .MuiAccordionDetails-root {
+  padding: 0 24px 16px 24px !important;
+  border-top: 1px solid #E0E0E0 !important;
+  background-color: #FFFFFF !important;
+  border-radius: 0 !important;
+}
+
+.storage-resource-accordion.Mui-expanded .MuiAccordionSummary-root {
+  border-radius: 0 !important;
+}
+
+.storage-resource-item-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.storage-resource-item-title-line {
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.storage-resource-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.storage-resource-title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.storage-resource-caret {
+  color: #666666;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.storage-resource-left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.storage-resource-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.storage-resource-type {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.storage-resource-types-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.storage-resource-type-with-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.storage-resource-status-badge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000000;
+  cursor: default;
+  pointer-events: none;
+}
+
+.storage-resource-description {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 500 !important;
+}
+
+.storage-resource-description-label {
+  color: #666666;
+  font-weight: 400;
+}
+
+.storage-resource-external-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #1976d2;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.storage-resource-external-link:hover {
+  text-decoration: underline;
+}
+
+.domain-details-container {
+  min-width: 200px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.domain-details-json {
+  margin: 0;
+  padding: 16px;
+  background-color: #FAFAFA;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 12px;
+  font-family: monospace;
+  color: #333;
+  overflow: auto;
+  max-height: 500px;
+}
+
+/* Environment Tab Styles */
+.env-section {
+  background-color: #F5F5F5;
+  min-height: 60px;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.env-section-title {
+  margin-bottom: 12px;
+  font-weight: 700 !important;
+}
+
+.env-section-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.env-section-item-title {
+  font-weight: 700 !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.env-section-label {
+  color: var(--semantic-text-color-light, rgba(60, 60, 60, 0.70));
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: "Artifakt Element";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.env-section-value-box {
+  background-color: #FFF;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.env-section-value-name {
+  font-size: 14px;
+}
+
+.env-section-value-path {
+  font-size: 12px;
+  word-break: break-all;
+  font-family: monospace;
+}

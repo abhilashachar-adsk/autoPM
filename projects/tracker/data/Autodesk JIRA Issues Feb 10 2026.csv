@@ -1,0 +1,154 @@
+Issue key,Issue id,Summary,Custom field (Story Points),Issue Type,Created,Labels,Assignee,Reporter,Creator,Custom field (Epic Link),Description,Resolved,Updated,Status,Custom field (Epic Status)
+ADPPICSERV-632,9286742,Unified Infra API for Provisioning Resources,,Epic,25/Nov/25 2:15 PM,,,achara,svc_p_pset_productbo,,"Unified API for Storage and Compute resource provisioning for Commercial and Corporate environments
+
+​
+
+Related
+
+* Tracker [https://autodesk.atlassian.net/wiki/spaces/CPDDPS/pages/edit/333588229?draftId=333802343&draftShareId=9792bdf7-8fc7-47a2-bf77-c192d0f8992e&]
+* PRD [https://wiki.autodesk.com/display/PSET/AD+Resource+Management]
+
+​
+
+AC
+
+* API contract defined
+* User guide in Beacon
+",20/Jan/26 1:57 PM,20/Jan/26 1:57 PM,Resolved,Done
+ADPPICSERV-603,9168531,RM API - Storage Creation Support for Corp Env.,,Epic,21/Oct/25 1:42 PM,,,achara,svc_p_pset_productbo,,"Use Cases
+
+* Support bulk creation of the corporate destinations for Batch Ingestion, transitioning from Fivetran to Nexla.
+* Enable dynamic storage creation in the Corp (New) or Commercial (existing) environment based on the data categorization e.g. Enterprise, Customer content data, etc.
+
+AC
+
+* Temportal workflow for corporate domain creation
+* RM API support for creating S3 buckets in the new CDL standards in the Corp env. 
+* All storage created will be compatible with UAM and MDM, so that there is no gaps
+
+PRD
+
+[https://wiki.autodesk.com/pages/resumedraft.action?draftId=2652763900&draftShareId=145f7b91-d96a-43e3-88f1-c77fb54cd73b&]
+",25/Nov/25 2:28 PM,25/Nov/25 2:28 PM,Closed,Done
+ADPPICSERV-590,9152336,Hive to Iceberg Utility,,Epic,15/Oct/25 2:56 PM,,,achara,svc_p_pset_productbo,,,25/Nov/25 2:27 PM,25/Nov/25 2:27 PM,Closed,Done
+ADPPICSERV-553,9100997,Unified MFE for Project Resources - Configure and Maintain Resources,,Epic,30/Sep/25 1:25 PM,,,achara,svc_p_pset_productbo,,"User Stories
+
+* As a platform developer, I want users to customize the size of compute beyond the default size to meet performance and SLA requirements, especially for larger data processing volumes.
+* As a platform developer, I want users to view versions of compute and orchestration, so that the platform can communicate the current and upcoming versions for privacy and security compliance.
+
+Mockups
+
+* [https://git.autodesk.com/achara/unified-resources-mfe-mockup]
+* [https://autodesk.slack.com/archives/C078XEZQR38/p1760575509766149]
+
+AC
+
+* Platform users can select from a default set of compute sizes preset by platform infrastructure and Batch processing
+* Platform users can easily view the due date and the action expected from them to continue utilizing compliant resources for their projects
+* ​
+
+PRD
+[https://autodesk.atlassian.net/wiki/display/PSET/AD+Resource+Management]
+",,20/Oct/25 12:43 PM,open,To Do
+ADPPICSERV-552,9100927,Unified MFE for Project Resources - View and Create New Resources,,Epic,30/Sep/25 1:24 PM,,,achara,svc_p_pset_productbo,,"User Stories
+
+* As a platform developer, I want users to request new storage resources within a project based on business needs 
+* As a platform developer, I want to rename freshly minted storage (formerly domains) without needing to recreate the storage.
+
+Mockups
+
+* [https://git.autodesk.com/achara/unified-resources-mfe-mockup]
+* [https://autodesk.slack.com/archives/C078XEZQR38/p1760575509766149]
+
+AC
+
+* Only admins of projects can select request additional storage (or workspaces)
+** Backward support for Snowflake and CDL 
+* Resource are renamed without requiring re\-creation or loss of metadata
+* ​
+
+PRD
+[https://autodesk.atlassian.net/wiki/display/PSET/AD+Resource+Management]
+",20/Jan/26 1:56 PM,20/Jan/26 1:56 PM,Resolved,Done
+ADPPICSERV-543,9091063,RM SRDA API - Get Access Data,,Epic,26/Sep/25 1:02 PM,,,achara,svc_p_pset_productbo,,"*Context*
+
+We have enabled the functionalities to fulfill IAM data access change requests via SRDA API in Q3. However, we will also need to fetch access granted to an IAM.
+
+This will enable users to view CDL paths storing unstructured data and the level of access granted to their project in project details (see link #2), which have than one IAM for Model Lab, EMR Job execution role, Ray cluster each.
+
+​
+
+Also consider integration with MDM API, especially if this pattern of storing access data follow structured data implementation.
+
+​
+
+*Links*
+ # Unstructured Data List - [https://data-stg.autodesk.com/unstructured-data]
+ # Project Details - [https://data-stg.autodesk.com/project-details?id=1db9f489-dd8d-41a1-8320-2312b3f79e31. |https://data-stg.autodesk.com/project-details?id=1db9f489-dd8d-41a1-8320-2312b3f79e31]PRD - https://data.autodesk.com/project-details
+
+​
+
+*AC*
+ * API has been integrated with unstructured data access workflows in access management.",20/Jan/26 2:01 PM,20/Jan/26 2:01 PM,Resolved,Done
+ADPPICSERV-542,9088117,Improve the Provisioning latency of Compute,,Epic,25/Sep/25 3:53 PM,,,achara,svc_p_pset_productbo,,"Following the improvements to the DFS API, to reduce the fulfillment turn around time to few minutes, this epic scope is to perform similar performance improvements to the VC and Astro API that provision the compute resources used by batch processing workflow
+
+AC
+
+* Platform users see at least 2x improvement in time to complete fulfillment 
+​
+
+​
+
+​
+",,14/Nov/25 2:25 PM,open,To Do
+ADPPICSERV-509,9034548,Innovation Sprint Tasks can be linked here,,Epic,09/Sep/25 1:37 PM,,,jains2,jains2,,,,14/Oct/25 1:59 PM,open,Done
+ADPINFRA-1264,9386082,DataOS - MVP and Phase 1,,Epic,06/Jan/26 2:00 PM,,,achara,svc_p_pset_productbo,,"*Resources*
+
+* [https://autodesk.atlassian.net/wiki/spaces/CPDDPS/pages/333790025/DataOS+-+Problem+Statement]
+* [https://autodesk.atlassian.net/wiki/spaces/CPDDPS/pages/657550305/DataOS+high-level+design]
+* [https://autodesk.atlassian.net/wiki/spaces/CPDDPS/pages/660165722/Project+Plan+-+DataOs+WIP]
+",,05/Feb/26 12:58 PM,open,To Do
+ADPINFRA-1160,9173659,Epic for tracking EMR on EKS Spark graviton migration for both commercial and corporate environments,,Epic,22/Oct/25 4:51 PM,,,narayas5,narayas5,,,06/Jan/26 2:37 PM,06/Jan/26 2:37 PM,Resolved,Done
+ADPINFRA-1117,9090997,Orchestration API - Temporal Tenant Provisioning,,Epic,26/Sep/25 1:05 PM,,,achara,svc_p_pset_productbo,,"* Each new project gets a dedicated Temporal workspace (or equivalent) automatically provisioned.
+* Orchestration API must create three environments (Dev, Stage, Prod) per project
+* Temporal workspaces must be compatible with Batch Processing Managed Pipelines
+
+​
+",,04/Feb/26 7:14 PM,open,To Do
+ADPINFRA-1115,9088224,Airflow Runtime Upgrade to 13.2.0,,Epic,25/Sep/25 3:47 PM,,,achara,svc_p_pset_productbo,,"AC
+
+* Integration tests with EDEV, LCD, BP teams 
+* Rollout plan and communication to existing tenants
+",06/Jan/26 2:34 PM,06/Jan/26 2:34 PM,Resolved,Done
+ADPINFRA-1081,9034659,Access Control - Privacera Deprecation,,Epic,09/Sep/25 1:15 PM,,,achara,svc_p_pset_productbo,,"Evaluate AWS Lake Formation as a replacement for Privacera to streamline governance, reduce costs, and simplify operational management of data access policies across the data platform.
+
+* Conduct a feature comparison of Privacera vs Ranger vs. AWS Lake Formation (capabilities, gaps, and integrations).
+* Identify migration paths for Proxy API, access policies, metadata, and security controls from Privacera to Lake Formation.
+* Assess operational impacts, including ease of administration, policy enforcement, and monitoring.
+* Run a pilot migration of selected datasets to validate policy enforcement and user experience.
+* Define a transition plan with timelines, risks, and mitigation strategies.
+
+h3. Deliverables
+
+* Comparative evaluation report (Privacera vs. Ranger vs Lake Formation).
+* Proof\-of\-concept / pilot results for a subset of datasets.
+* Recommendation document with proposed roadmap for migration.
+",,06/Jan/26 1:25 PM,open,To Do
+ADPINFRA-1075,9029996,Enable Platform MCPs in Production,,Epic,08/Sep/25 3:18 PM,,,achara,svc_p_pset_productbo,,"Enable platform teams to seamlessly deploy, monitor, and scale Model Control Plane (MCP) servers in production environments. The MCPs should be available to the orchestration in Autodesk Assistant Platform.
+
+​
+
+​
+
+AC
+
+* Solution design reviewed by AD Architecture Review
+* At least one MCP deployed to production
+
+​
+",,30/Sep/25 1:49 PM,open,Done
+ADPINFRA-1074,9030230,Migrate from Jenkin CICD to Cloudbees CI,,Epic,08/Sep/25 3:12 PM,,,achara,svc_p_pset_productbo,,"This epic covers the migration of our Jenkins CI/CD infrastructure from the master\-3 repository to the CloudBees CI c014 controller. The goal is to ensure compatibility with CBCI requirements, migrate secrets and credentials to Vault, assess integration with various services, and re\-engineer pipelines to use Declarative syntax.
+
+​
+",,09/Feb/26 12:29 PM,open,To Do
+ADPINFRA-1057,9011668,Epic for innovation sprint for 2026,,Epic,02/Sep/25 1:50 PM,,,narayas5,narayas5,,,06/Jan/26 2:36 PM,06/Jan/26 2:36 PM,Resolved,Done

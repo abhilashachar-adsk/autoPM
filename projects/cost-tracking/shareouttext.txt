@@ -1,0 +1,171 @@
+Ganesh R
+0 minutes 4 seconds0:04
+Ganesh R 0 minutes 4 seconds
+OK.
+Ganesh R 0 minutes 19 seconds
+Hey Edward, so yeah, I will walk you through our tagging strategy for cost activation. But before diving into the details here, let me show you the dashboards that this will enable. I think that will help in illustrate, you know why proper tagging here matters and.
+Ganesh R 0 minutes 36 seconds
+The value that it brings to each of the team that is here. So our goal is to enable course visibility at the project level with the ability to then drill down to individual pipelines and jobs. This granulogy will allow us to make informed decisions about resource optimization and help with the accurate course allocations.
+Ganesh R 0 minutes 55 seconds
+Right, so the first view that we here view that we have here is the project level cost group by an AW service. So for each project we can see it group by AW services and as you can see we have a plate the filter to show a specific project here which is a DXCML team.
+Ganesh R 1 minute 13 seconds
+This dashboard shows all the underlying resources are AWS services that is in use for that project and their respective cost for the last 30 days. This gives project owners a high level understanding of which AWS services are driving their infrastructure cost. So this is the first view.
+Ganesh R 1 minute 28 seconds
+Another view that we have is a group by pipeline view, which is again a filter for a particular project. This drills a bit deeper. Instead of viewing caused by AWS service, we can group caused by pipeline. This view basically answers which pipelines are consuming the most resources within a project as you can see.
+Ganesh R 1 minute 48 seconds
+See here we can we have again filtered it for the same project and it tells you exactly which Dagger workflow is driving the cost there. For example, if customer journey is costing this particular pipeline that you see here is costing specifically more than others, we can then investigate whether it needs optimization or.
+Ganesh R 2 minutes 5 seconds
+If it's justified by the business branding. So that's another view that we have. The third view is project level cost improved by jobs this time. So this is another view that we gain by the granularity that we we have this packing strategy. This is one level deeper. We can now see cost at the individual job level.
+Ganesh R 2 minutes 24 seconds
+Which is grouped by the. So this is possible because it helps you identify which specific task.
+Ganesh R 2 minutes 33 seconds
+Maybe our version or we may have opportunities for administration task limit there. For instance this task you see here constantly showing high cost access signature to review the configuration and maybe check the execution for agency etcetera.
+
+Ganesh R
+21 minutes 8 seconds21:08
+Ganesh R 21 minutes 8 seconds
+OK.
+
+Mili Tripathi
+21 minutes 14 seconds21:14
+Mili Tripathi 21 minutes 14 seconds
+OK.
+Mili Tripathi 21 minutes 16 seconds
+OK. That's good to know. I'm just wanted to know the effort here from our side, you know, multiple things going on. So thank you.
+
+Surendar Muthukumar
+21 minutes 19 seconds21:19
+Surendar Muthukumar 21 minutes 19 seconds
+Yep.
+
+Ganesh R
+21 minutes 36 seconds21:36
+Ganesh R 21 minutes 36 seconds
+Yeah.
+SV
+Sankalp Vairat
+21 minutes 36 seconds21:36
+Sankalp Vairat 21 minutes 36 seconds
+Yeah, Carlos, please go ahead.
+
+Carlos Zapata
+21 minutes 38 seconds21:38
+Carlos Zapata 21 minutes 38 seconds
+A quick question. So the the idea behind all this tagging is to like provide more granularity on each of these on each of these stacks, right. I have one service in my team that only have so far across all the services that are behind of these of these capability just.
+Carlos Zapata 21 minutes 58 seconds
+Moniker tag. So correct me if I'm wrong but with all of these new tagging strategy you wanna know you know don't have like the aggregated cost but you know you wanna know for example for my service you wanna know.
+Carlos Zapata 22 minutes 13 seconds
+What are the cost for all the compute resources or all the storage resources and so on? Am I right?
+SV
+Sankalp Vairat
+22 minutes 21 seconds22:21
+Sankalp Vairat 22 minutes 21 seconds
+That's great, Carlos. Yeah. Again, I mean it's going to be kind of divided into two parts, right. For example, the control plane that we are kind of running for providing the capabilities for the customers, right. So those are also going to kind of fall into categories of moniker and projects most probably, right. I I I don't think so the pipeline and jobs will be kind of attached to it.
+Sankalp Vairat 22 minutes 41 seconds
+But something for customers, the monikers, projects and pipeline and job job IDs are going to be there for them. So a good example could be something like this, for example the say.
+Sankalp Vairat 22 minutes 58 seconds
+A microservice which is being run currently to spin up say like some compute like a spark on our clusters. That is a control plane that we are running right and we need to kind of tag that as part of our project and our monikers.
+Sankalp Vairat 23 minutes 16 seconds
+But the resources it's spinning as part of it, it's going to be with the project ID of customers and the job IDs of customers and pipeline IDs of customers. So we'll have to categorize in that particular fashion. Yeah, yeah.
+
+Carlos Zapata
+23 minutes 27 seconds23:27
+Carlos Zapata 23 minutes 27 seconds
+Yes.
+Carlos Zapata 23 minutes 29 seconds
+I see. OK. Thanks.
+SV
+Sankalp Vairat
+23 minutes 33 seconds23:33
+Sankalp Vairat 23 minutes 33 seconds
+So, so for example, if your service is being utilized by customers for some of the, you know, functionalities, maybe you'll have to think from that direction in that case.
+
+Carlos Zapata
+23 minutes 44 seconds23:44
+Carlos Zapata 23 minutes 44 seconds
+Sure, thanks.
+
+Ganesh R
+23 minutes 49 seconds23:49
+Ganesh R 23 minutes 49 seconds
+Yeah.
+SV
+Sankalp Vairat
+23 minutes 54 seconds23:54
+Sankalp Vairat 23 minutes 54 seconds
+Any other questions?
+
+Surendar Muthukumar
+24 minutes 7 seconds24:07
+Surendar Muthukumar 24 minutes 7 seconds
+So Santhal, one last question maybe. So this costing what we are talk about like by adding A tag to the EMR will only capture the compute cost, right? So do we have any plan for capturing the orchestration cost as well like airflow or temporal?
+SV
+Sankalp Vairat
+24 minutes 23 seconds24:23
+Sankalp Vairat 24 minutes 23 seconds
+Yeah, yeah. So it's again going to be similar, Surrender, for example, when we would be kind of running this Astronomer cluster as part of the Kubernetes. So we would be kind of attaching the the tags there as well for each and every again like Astronomer currently runs as a namespace, separate namespace, right? And then we can.
+
+Surendar Muthukumar
+24 minutes 30 seconds24:30
+Surendar Muthukumar 24 minutes 30 seconds
+Eat.
+Surendar Muthukumar 24 minutes 34 seconds
+OK.
+Surendar Muthukumar 24 minutes 41 seconds
+Yeah.
+SV
+Sankalp Vairat
+24 minutes 42 seconds24:42
+Sankalp Vairat 24 minutes 42 seconds
+Actually kind of have the have those tags attached to the workers accordingly, workers and schedulers accordingly for each and every deployment. When we would be kind of moving to temporal that time it's going to be much more easier because temporal kind of segregates the worker part directly to the namespaces.
+Sankalp Vairat 25 minutes
+So that time I mean we would be kind of running the temporal workers as part of the data OS and that would directly have the tags attached to it.
+
+Surendar Muthukumar
+25 minutes 10 seconds25:10
+Surendar Muthukumar 25 minutes 10 seconds
+OK, Yep.
+
+Nick Ragusa
+25 minutes 14 seconds25:14
+Nick Ragusa 25 minutes 14 seconds
+It sorry Sankalp. I have a kid home sick from school today, so sorry if I missed it, but would the tags be stored in in DM or is this a separate system that for for cost attribution?
+SV
+Sankalp Vairat
+25 minutes 28 seconds25:28
+Sankalp Vairat 25 minutes 28 seconds
+I mean the tags are going to get attached to the AWS components directly. So what we are expecting is basically capabilities to pull the information about the project IDs that as part of which they are kind of running the compute, spinning up the you know, the three buckets and everything or any other compute.
+
+Nick Ragusa
+25 minutes 34 seconds25:34
+Nick Ragusa 25 minutes 34 seconds
+OK.
+SV
+Sankalp Vairat
+25 minutes 48 seconds25:48
+Sankalp Vairat 25 minutes 48 seconds
+That they they they're trying to kind of run as part of the project and then apply it to the AWS resources directly. Even the pipeline IDs and job IDs, these are going to be more of a runtime constructs which they would be kind of getting to know when they would be kind of spinning up the resources.
+
+Nick Ragusa
+26 minutes 4 seconds26:04
+Nick Ragusa 26 minutes 4 seconds
+OK, gotcha. Makes sense. Thanks.
+SV
+Sankalp Vairat
+26 minutes 7 seconds26:07
+Sankalp Vairat 26 minutes 7 seconds
+Yep.
+Sankalp Vairat 26 minutes 17 seconds
+All right, cool. Then we'll we'll share the the name of the channel as well. We'll loop you all in that one. Please feel free to include the engineers that that are going to work on this thing and we can we can all we will also kind of set up some office hours as well so that.
+Sankalp Vairat 26 minutes 32 seconds
+If there are any questions, concerns, we can take them forward. Thanks. Thank you so much for joining this call and we're looking forward to see some of the GLA tickets from your side. Thank you so much. Have a nice day.
+
+Ganesh R
+26 minutes 46 seconds26:46
+Ganesh R 26 minutes 46 seconds
+Thanks, Edron.
+
+Nick Ragusa
+26 minutes 46 seconds26:46
+Nick Ragusa 26 minutes 46 seconds
+Thanks.

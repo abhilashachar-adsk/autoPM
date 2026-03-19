@@ -1,0 +1,8 @@
+>0.25%
+not ie 11
+not op_mini all
+not opera > 0
+not samsung > 0
+not and_uc > 0
+not safari < 15
+not ios_saf < 15

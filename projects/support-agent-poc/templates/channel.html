@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}{{ channel.name }} - Team Channel{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="header-top">
+        <a href="/" class="back-link">&larr; Back</a>
+    </div>
+    <h1>{{ channel.name }} Channel</h1>
+    <p class="subtitle">{{ channel.description }}</p>
+</div>
+
+<div class="channel-layout">
+    {% if channel.sub_tickets %}
+        {% for sub_ticket in channel.sub_tickets|sort(attribute='created_at', reverse=true) %}
+        <div class="card sub-ticket-card">
+            <div class="sub-ticket-header">
+                <div class="sub-ticket-title">
+                    <h3>
+                        <a href="/tickets/{{ sub_ticket.parent_ticket.id }}/view">
+                            {{ sub_ticket.parent_ticket.title }}
+                        </a>
+                    </h3>
+                    <span class="ticket-id-small">Ticket #{{ sub_ticket.parent_ticket.id }}</span>
+                </div>
+                <div class="sub-ticket-status">
+                    <span class="status-badge status-{{ sub_ticket.status }}">{{ sub_ticket.status }}</span>
+                    {% if sub_ticket.parent_ticket.priority %}
+                    <span class="priority-badge priority-{{ sub_ticket.parent_ticket.priority }}">
+                        {{ sub_ticket.parent_ticket.priority }}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="sub-ticket-meta">
+                <span>From: {{ sub_ticket.parent_ticket.requester_name or 'Anonymous' }}</span>
+                <span>Created: {{ sub_ticket.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+            </div>
+            
+            <div class="context-box">
+                <strong>Context for {{ channel.name }}:</strong>
+                <p>{{ sub_ticket.context }}</p>
+            </div>
+            
+            <div class="original-request-preview">
+                <strong>Original Request:</strong>
+                <p>{{ sub_ticket.parent_ticket.description[:300] }}{% if sub_ticket.parent_ticket.description|length > 300 %}...{% endif %}</p>
+            </div>
+            
+            <div class="sub-ticket-messages">
+                <h4>Conversation ({{ sub_ticket.messages|length }} messages)</h4>
+                <div class="messages-list">
+                    {% for message in sub_ticket.messages|sort(attribute='created_at') %}
+                    <div class="message message-{{ message.author_type }}">
+                        <div class="message-header">
+                            <span class="message-author">{{ message.author_name }}</span>
+                            <span class="message-time">{{ message.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+                        </div>
+                        <div class="message-body">{{ message.content | replace('\n', '<br>') | safe }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            {% if sub_ticket.status != 'resolved' %}
+            <div class="reply-section">
+                <form class="team-reply-form" data-sub-ticket-id="{{ sub_ticket.id }}">
+                    <div class="form-row">
+                        <input 
+                            type="text" 
+                            class="author-input form-input" 
+                            placeholder="Your name"
+                            required
+                        >
+                        <textarea 
+                            class="reply-input form-input" 
+                            placeholder="Type your response..."
+                            rows="2"
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-sm">Send Response</button>
+                        <button type="button" class="btn btn-success btn-sm resolve-btn" data-sub-ticket-id="{{ sub_ticket.id }}">
+                            Mark Resolved
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {% else %}
+            <div class="resolved-badge">
+                <span class="checkmark">&#10003;</span> This task has been resolved
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="card empty-state">
+            <p>No tickets assigned to this channel yet.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const channelId = {{ channel.id }};
+
+// Handle team reply form submission
+document.querySelectorAll('.team-reply-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const subTicketId = form.dataset.subTicketId;
+        const authorInput = form.querySelector('.author-input');
+        const replyInput = form.querySelector('.reply-input');
+        
+        const data = {
+            author_name: authorInput.value.trim(),
+            content: replyInput.value.trim()
+        };
+        
+        if (!data.author_name || !data.content) return;
+        
+        try {
+            const response = await fetch(`/channels/${channelId}/tickets/${subTicketId}/reply`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to send response');
+            }
+            
+            // Reload to show new message
+            window.location.reload();
+            
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    });
+});
+
+// Handle resolve button
+document.querySelectorAll('.resolve-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const subTicketId = btn.dataset.subTicketId;
+        
+        if (!confirm('Mark this task as resolved?')) return;
+        
+        try {
+            const response = await fetch(`/channels/${channelId}/tickets/${subTicketId}/resolve`, {
+                method: 'POST'
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to resolve ticket');
+            }
+            
+            window.location.reload();
+            
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    });
+});
+</script>
+{% endblock %}

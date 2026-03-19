@@ -1,0 +1,30 @@
+# Configuration for the CFP pipeline.
+
+# WARNING: It is highly discouraged to make any changes
+# to this Jenkinsfile. Consult the CFP Team if you feel
+# updates are needed.
+
+app:
+  name: 'adp-infra-project-resources-mfe'
+  type: 'cfp-mfe'
+  team:
+    email: 'valentyn.loiko@autodesk.com'
+    slack_channel: '#ad-infra-alerts'
+delivery_system:
+  credential_ids:
+    cfp_vault: svc_aad_p_cfpPipeline
+    git_ssh: svc_p_dh-auto
+    slack: ors_slack_token
+  node_version: 22
+  environments:
+    all:
+      - dev
+      - int
+      - stg
+      - prd
+    continuous_delivery:
+      - dev
+    pull_request:
+      - dev
+  rma:
+    rma_enabled: false

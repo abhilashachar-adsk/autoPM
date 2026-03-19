@@ -1,0 +1,32 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color": false,
+  "colorGroups": [
+    {
+      "query": "path:GTD",
+      "color": { "a": 1, "rgb": 3066993 }
+    },
+    {
+      "query": "path:projects",
+      "color": { "a": 1, "rgb": 15105570 }
+    },
+    {
+      "query": "path:method",
+      "color": { "a": 1, "rgb": 10181046 }
+    }
+  ],
+  "collapse-display": false,
+  "lineSizeMultiplier": 1,
+  "nodeSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1
+}

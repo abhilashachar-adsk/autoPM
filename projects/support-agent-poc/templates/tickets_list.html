@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}My Tickets{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>My Tickets</h1>
+    <p class="subtitle">View and track all your support requests</p>
+</div>
+
+<div class="card">
+    <div class="tickets-list" id="tickets-list">
+        <div class="loading">Loading tickets...</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function loadTickets() {
+    const container = document.getElementById('tickets-list');
+    
+    try {
+        const response = await fetch('/tickets');
+        if (!response.ok) throw new Error('Failed to load tickets');
+        
+        const tickets = await response.json();
+        
+        if (tickets.length === 0) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <p>No tickets yet.</p>
+                    <a href="/" class="btn btn-primary">Submit a Request</a>
+                </div>
+            `;
+            return;
+        }
+        
+        container.innerHTML = tickets.map(ticket => `
+            <a href="/tickets/${ticket.id}/view" class="ticket-list-item">
+                <div class="ticket-list-header">
+                    <span class="ticket-list-title">${ticket.title}</span>
+                    <span class="status-badge status-${ticket.status}">${ticket.status}</span>
+                </div>
+                <div class="ticket-list-meta">
+                    <span>#${ticket.id}</span>
+                    ${ticket.priority ? `<span class="priority-badge priority-${ticket.priority}">${ticket.priority}</span>` : ''}
+                    <span>${ticket.team_count} team(s)</span>
+                    <span>${new Date(ticket.created_at).toLocaleDateString()}</span>
+                </div>
+            </a>
+        `).join('');
+        
+    } catch (error) {
+        container.innerHTML = `<div class="error">Error loading tickets: ${error.message}</div>`;
+    }
+}
+
+loadTickets();
+</script>
+{% endblock %}

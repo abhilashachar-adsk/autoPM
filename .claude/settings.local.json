@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo:*)",
+      "Bash(GH_HOST=git.autodesk.com gh pr view 19 --repo ADP/adp-query-exp-mfe 2>&1)",
+      "Bash(GH_HOST=git.autodesk.com gh pr view 2174 --repo ADP/adpcs-infra 2>&1)",
+      "Bash(GH_HOST=git.autodesk.com gh pr diff 2174 --repo ADP/adpcs-infra 2>&1)",
+      "Bash(GH_HOST=git.autodesk.com gh pr diff 19 --repo ADP/adp-query-exp-mfe 2>&1)",
+      "Bash(GH_HOST=git.autodesk.com gh api repos/ADP/adpcs-infra/git/trees/HEAD?recursive=1 2>&1 | python3 -c \"import sys,json; tree=json.load\\(sys.stdin\\); [print\\(f['path']\\) for f in tree['tree'] if 'dashboard' in f['path'].lower\\(\\) and f['path'].endswith\\(\\('.tsx','.ts'\\)\\) and 'node_modules' not in f['path']]\" 2>&1 | head -30)",
+      "Bash(GH_HOST=git.autodesk.com gh auth token 2>&1)",
+      "Bash(find:*)",
+      "Bash(GH_HOST=git.autodesk.com gh pr view 19 --repo ADP/adp-query-exp-mfe --json headRefName,baseRefName 2>&1)",
+      "Bash(GH_HOST=git.autodesk.com gh pr view 2174 --repo ADP/adpcs-infra --json headRefName,baseRefName 2>&1)",
+      "Bash(GH_HOST=git.autodesk.com gh repo view ADP/adpcs-infra --json viewerPermission 2>&1; GH_HOST=git.autodesk.com gh repo view ADP/adp-query-exp-mfe --json viewerPermission 2>&1)",
+      "Bash(ssh:*)",
+      "Bash(GH_HOST=git.autodesk.com gh repo fork ADP/adpcs-infra --clone=false 2>&1; GH_HOST=git.autodesk.com gh repo fork ADP/adp-query-exp-mfe --clone=false 2>&1)"
+    ]
+  }
+}

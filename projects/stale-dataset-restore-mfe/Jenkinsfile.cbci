@@ -1,0 +1,29 @@
+// WARNING: It is highly discouraged to make any changes
+// to this Jenkinsfile. Consult the CFP Team if you feel
+// updates are needed.
+//
+// Pipeline Script Path on CBCI: Jenkinsfile.cbci
+// Controller: c050 (PSETADCI / INFRAMFE Service)
+
+@Library('PSL') _
+@Library('cfp-pipeline@main')
+@Library('checkoutpsl@main')
+
+cfpPipeline {
+    // Optional: Add custom pre-release steps (e.g., load helper scripts)
+    preRelease = {
+        echo "Pre-release stage for adp-stale-dataset-restore-mfe"
+    }
+
+    // Optional: Add custom post-release steps (e.g., SonarQube scan)
+    postRelease = {
+        stage('Scan - SonarQube') {
+            sonarqubeScan(defaultGitBranch: 'main')
+        }
+    }
+
+    // Optional: Add custom post-deployment steps per environment
+    postDeployment = {
+        echo "Deployed to environment: ${delegate.environment}"
+    }
+}

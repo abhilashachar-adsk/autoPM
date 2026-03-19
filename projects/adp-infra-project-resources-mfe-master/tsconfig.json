@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "typeRoots": ["./src/types", "./types", "./node_modules/@types/"]
+  },
+  "include": [
+    "src",
+    "src/components",
+    "src/custom.d.ts",
+    "playwright.config.ts",
+    "tests"
+  ],
+  "exclude": ["node_modules"]
+}

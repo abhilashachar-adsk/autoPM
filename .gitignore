@@ -1,32 +1,18 @@
-# OS files
+# Private people notes — personal to each PM, never shared
+people/*.md
+
+# Daily notes — personal working log
+daily/*.md
+
+# OS and editor artifacts
 .DS_Store
-Thumbs.db
-
-# Editor files
-*.swp
-*.swo
-*~
-
-# Obsidian
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-.obsidian/hotkeys.json
 
-# Node (if any subprojects)
-node_modules/
-dist/
-build/
-
-# Python
+# Python environments
+.venv/
 __pycache__/
 *.pyc
-.venv/
-venv/
 
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Cursor project-specific cache
-.cursor/projects/
+# Node
+node_modules/

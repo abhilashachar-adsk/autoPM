@@ -1,0 +1,35 @@
+# Configuration for the CFP pipeline.
+# WARNING: It is highly discouraged to make any changes
+# to this file. Consult the CFP Team if you feel updates are needed.
+#
+# Controller: c050 (PSETADCI / INFRAMFE Service)
+# Credential: github-app-shared-pipeline-community
+
+app:
+  name: 'ad-data-lake-staledataset-restore-mfe'
+  type: 'cfp-mfe'
+  team:
+    email: 'pset.ad.platform.infra@autodesk.com'          # Update with your team's email
+    slack_channel: '#pset-ad-infra-support'                # Update with your team's Slack channel
+
+delivery_system:
+  credential_ids:
+    artifactory: CFP_ARTIFACTORY
+    cfp_vault: svc_p_cfpPipeline                           # CFP vault credential (ask CFP team if not in CBCI Vault)
+    git_ssh: ors_git_ssh_key_np                            # Globally available on CBCI
+    slack: ors_slack_token
+  node_version: 18
+  environments:
+    all:
+      - dev
+      - int
+      - stg
+      - prd
+    continuous_delivery:
+      - dev
+    pull_request:
+  rma:
+    rma_enabled: false
+  package_manager:
+    name: 'npm'
+    version: '10'

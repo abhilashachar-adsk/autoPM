@@ -1,5 +1,5 @@
 ---
-description: GTD workflow for AI-assisted productivity management
+description: 
 alwaysApply: true
 ---
 
@@ -13,15 +13,15 @@ Lower mental load: you stop trying to remember everything.
 
 More reliable follow-through: you always know the next action.
 
-Cleaner prioritization: decisions happen in "review time," not in the heat of your workday.
+Cleaner prioritization: decisions happen in “review time,” not in the heat of your workday.
 
 Calmer execution: because your system is complete and current.
 
 The 5 core steps of GTD
 1) Capture
 
-Collect everything that has your attention—tasks, ideas, worries, requests, "someday" thoughts—into trusted inboxes (inbox folder, notes, email, paper, etc.).
-Rule: if it's on your mind, it goes into an inbox.
+Collect everything that has your attention—tasks, ideas, worries, requests, “someday” thoughts—into trusted inboxes (Notion inbox, notes, email, paper, etc.).
+Rule: if it’s on your mind, it goes into an inbox.
 
 2) Clarify
 
@@ -41,23 +41,25 @@ Trash: delete it
 
 If actionable:
 
-What's the very next physical action?
+What’s the very next physical action?
 
-Does it take 2+ actions? If yes, it's a Project and needs at least one Next Action.
+Does it take 2+ actions? If yes, it’s a Project and needs at least one Next Action.
 
 3) Organize
 
 Put clarified outcomes into the right buckets/lists:
 
-Next Actions: the next visible step you can do (e.g., "Draft email to vendor").
+Next Actions: the next visible step you can do (e.g., “Draft email to vendor”).
 
-Waiting For: things you're waiting on from others (e.g., "Waiting for supplier quote").
+Waiting For: things you’re waiting on from others (e.g., “Waiting for supplier quote”).
 
-Agenda: topics for specific people/meetings (e.g., "1:1 with manager," "Call with contractor").
+Agenda: topics for specific people/meetings (e.g., “1:1 with manager,” “Call with contractor”).
 
-Projects: outcomes that require multiple steps (e.g., "Launch new product feature").
+Projects: outcomes that require multiple steps (e.g., “Launch new menu board”).
 
 Goals: higher-level objectives that give direction and meaning to projects.
+
+This is why your Notion structure makes sense: it’s a classic GTD layout.
 
 4) Reflect
 
@@ -77,7 +79,7 @@ Refresh Waiting For and Agendas
 
 Re-align with Goals
 
-The Weekly Review is the "maintenance" that turns GTD from a list into a reliable system.
+The Weekly Review is the “maintenance” that turns GTD from a list into a reliable system.
 
 5) Engage
 
@@ -91,21 +93,21 @@ Energy available
 
 Priority (what matters most)
 
-GTD is not about doing everything—it's about making smart choices with clarity.
+GTD is not about doing everything—it’s about making smart choices with clarity.
 
 What the key lists mean (mapped to your pages)
 
-Next Actions: "If I had 10 minutes right now, what could I physically do?"
+Next Actions: “If I had 10 minutes right now, what could I physically do?”
 
-Waiting For: "What have I handed off or what's pending?"
+Waiting For: “What have I handed off or what’s pending?”
 
-Agenda: "What do I need to discuss with Person X / in Meeting Y?"
+Agenda: “What do I need to discuss with Person X / in Meeting Y?”
 
-Projects: "What outcomes am I committed to that need more than one step?"
+Projects: “What outcomes am I committed to that need more than one step?”
 
-Goals: "What am I aiming for this quarter/year that should shape my project choices?"
+Goals: “What am I aiming for this quarter/year that should shape my project choices?”
 
-The GTD "golden rules"
+The GTD “golden rules”
 
 Everything captured (nothing floating in your head)
 

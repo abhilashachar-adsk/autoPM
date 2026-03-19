@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Ticket #{{ ticket.id }} - {{ ticket.title }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="header-top">
+        <a href="/" class="back-link">&larr; Back to Submit</a>
+        <span class="ticket-id">Ticket #{{ ticket.id }}</span>
+    </div>
+    <h1>{{ ticket.title }}</h1>
+    <div class="ticket-meta">
+        <span class="status-badge status-{{ ticket.status }}">{{ ticket.status }}</span>
+        {% if ticket.priority %}
+        <span class="priority-badge priority-{{ ticket.priority }}">{{ ticket.priority }}</span>
+        {% endif %}
+        <span class="meta-item">By {{ ticket.requester_name or 'Anonymous' }}</span>
+        <span class="meta-item">{{ ticket.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+    </div>
+</div>
+
+<div class="ticket-layout">
+    <!-- Left: Main conversation -->
+    <div class="main-conversation">
+        <div class="card">
+            <h3>Original Request</h3>
+            <div class="message-content original-request">
+                {{ ticket.description }}
+            </div>
+        </div>
+        
+        {% if ticket.triage_result %}
+        <div class="card triage-card">
+            <h3>AI Triage Analysis</h3>
+            <div class="triage-content">
+                <p><strong>Summary:</strong> {{ ticket.triage_result.summary }}</p>
+                <p><strong>Reasoning:</strong> {{ ticket.triage_result.reasoning }}</p>
+                <div class="teams-involved">
+                    <strong>Teams Involved:</strong>
+                    {% for team in ticket.triage_result.teams %}
+                    <span class="team-badge">{{ team.team_name }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="card conversation-card">
+            <h3>Conversation</h3>
+            <div class="messages-container" id="messages-container">
+                {% for message in ticket.messages|sort(attribute='created_at') %}
+                <div class="message message-{{ message.author_type }}">
+                    <div class="message-header">
+                        <span class="message-author">{{ message.author_name }}</span>
+                        <span class="message-time">{{ message.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+                    </div>
+                    <div class="message-body">{{ message.content | replace('\n', '<br>') | safe }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            {% if ticket.status not in ['closed', 'resolved'] %}
+            <div class="reply-form">
+                <form id="reply-form">
+                    <textarea 
+                        id="reply-content" 
+                        placeholder="Type your reply... (This will be shared with all involved teams)"
+                        rows="3"
+                        class="form-input"
+                    ></textarea>
+                    <button type="submit" class="btn btn-primary">Send Reply</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Right: Team channels sidebar -->
+    <div class="team-sidebar">
+        <h3>Team Progress</h3>
+        {% for sub_ticket in ticket.sub_tickets %}
+        <div class="team-card">
+            <div class="team-header">
+                <span class="team-name">{{ sub_ticket.channel.name }}</span>
+                <span class="status-badge status-{{ sub_ticket.status }}">{{ sub_ticket.status }}</span>
+            </div>
+            <div class="team-context">
+                <small>{{ sub_ticket.context[:100] }}{% if sub_ticket.context|length > 100 %}...{% endif %}</small>
+            </div>
+            <div class="team-messages-count">
+                {{ sub_ticket.messages|length }} message(s)
+            </div>
+            <details class="team-messages-details">
+                <summary>View team conversation</summary>
+                <div class="team-messages">
+                    {% for msg in sub_ticket.messages|sort(attribute='created_at') %}
+                    <div class="mini-message">
+                        <strong>{{ msg.author_name }}:</strong> 
+                        {{ msg.content[:100] }}{% if msg.content|length > 100 %}...{% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </details>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const ticketId = {{ ticket.id }};
+
+document.getElementById('reply-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const content = document.getElementById('reply-content').value.trim();
+    if (!content) return;
+    
+    try {
+        const response = await fetch(`/tickets/${ticketId}/reply`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to send reply');
+        }
+        
+        // Reload page to show new messages
+        window.location.reload();
+        
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+});
+
+// Auto-refresh every 10 seconds for demo
+setInterval(() => {
+    // In production, use SSE instead
+    // window.location.reload();
+}, 30000);
+</script>
+{% endblock %}

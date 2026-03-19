@@ -1,0 +1,29 @@
+// WARNING: It is highly discouraged to make any changes
+// to this Jenkinsfile. Consult the CFP Team if you feel
+// updates are needed.
+
+@Library('cfp-pipeline@main') _
+
+cfpPipeline {
+  postReleaseHook = {
+   generateCodeCoverage()
+  }
+}
+
+def generateCodeCoverage() {
+    def isVersionBumpBuild = sh(script: "git log -1 | grep 'svc_p_akp_jenkins'", returnStatus: true)
+
+    stage('Coverage Report') {
+        if (isVersionBumpBuild > 0) {
+            println 'Detected a non-version bump build. Creating Coverage Report.'
+            recordCoverage(tools: [[parser: 'COBERTURA', pattern: 'coverage/cobertura-coverage.xml']],
+                    id: 'REPO_COVERAGE', name: 'Code Coverage',
+                    sourceCodeRetention: 'LAST_BUILD',
+                    qualityGates: [[threshold: 60.0, metric: 'LINE', baseline: 'PROJECT', unstable: true],
+                                   [threshold: 80.0, metric: 'BRANCH', baseline: 'PROJECT', unstable: true],
+                                   [threshold: 80.0, metric: 'METHOD', baseline: 'PROJECT', unstable: true]])
+        } else {
+            println 'Skipping Coverage Report'
+        }
+    }
+}
